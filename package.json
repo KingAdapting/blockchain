@@ -1,0 +1,12 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "Object: learn basics of blockchain",
+  "main": "index.js",
+  "repository": "https://github.com/KingAdapting/blockchain.git",
+  "author": "Vitaliy <tkachuk.vitaliy.1995@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
