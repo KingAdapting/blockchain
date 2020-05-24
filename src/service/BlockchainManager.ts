@@ -26,6 +26,11 @@ export class BlockchainManager implements ManagerInterface
         return this.blockchain;
     }
 
+    public getLatestBlock(): Block
+    {
+        return this.blockchain[this.blockchain.length - 1];
+    }
+
     public addBlock(blockData: string): Block|ApiError
     {
         try {
@@ -39,10 +44,5 @@ export class BlockchainManager implements ManagerInterface
         } catch ({ message }) {
             return new ApiError(400, message);
         }
-    }
-
-    private getLatestBlock(): Block
-    {
-        return this.blockchain[this.blockchain.length - 1];
     }
 }

@@ -32,6 +32,9 @@ const initHttpServer = (myHttpPort: number) => {
 
 const initP2PServer = (p2pPort: number) => {
     const server: Server = new WebSocket.Server({ port: p2pPort });
+    server.on('connection', (ws: WebSocket) => {
+
+    });
     console.log(`Listening websocket p2p port on ${ p2pPort }`);
 };
 
