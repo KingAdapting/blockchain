@@ -2,11 +2,22 @@
   "name": "blockchain",
   "version": "1.0.0",
   "description": "Object: learn basics of blockchain",
-  "main": "index.js",
   "repository": "https://github.com/KingAdapting/blockchain.git",
   "author": "Vitaliy <tkachuk.vitaliy.1995@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node dist/index.js",
+    "compile": "tsc"
+  },
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "types/express",
+    "@types/node": "^14.0.5",
+    "tslint": "^6.1.2"
   }
 }
