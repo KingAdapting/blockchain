@@ -1,21 +1,25 @@
+import { inject, injectable } from 'inversify';
+
+import { TYPES } from '../dependency-injection/types';
 import { Block } from '../model/Block';
-import { BlockFactory } from './BlockFactory';
-import { ManagerInterface } from "./ManagerInterface";
+import { ManagerInterface } from '../infrastructure/ManagerInterface';
+import { BlockFactory} from "./BlockFactory";
 
-class BlockchainManager implements ManagerInterface
+@injectable()
+export class BlockchainManager implements ManagerInterface
 {
-    private blockchain: Block[];
+    private blockchain: Block[] = [];
 
-    constructor() {
-        this.blockchain.push(BlockFactory.createGenesisBlock())
+    constructor(
+        @inject(TYPES.BlockFactory) private blockFactory: BlockFactory
+    ) {
+        this.blockchain.push(this.blockFactory.createGenesisBlock())
     }
 
     public getBlockchain(): Block[]
     {
         return this.blockchain;
     }
-
-
 
     private getLatestBlock(): Block
     {
