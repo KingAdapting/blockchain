@@ -10,13 +10,15 @@ import { ApiError } from '../model/DTO/ApiError';
 @injectable()
 export class BlockchainManager implements ManagerInterface
 {
+    private readonly genesisBlock: Block;
     private blockchain: Block[] = [];
 
     constructor(
         @inject(TYPES.BlockFactory) private blockFactory: BlockFactory,
         @inject(TYPES.Validator) private blockValidator: BlockValidator
     ) {
-        this.blockchain.push(this.blockFactory.createGenesisBlock())
+        this.genesisBlock = this.blockFactory.createGenesisBlock();
+        this.blockchain.push(this.genesisBlock);
     }
 
     public getBlockchain(): Block[]

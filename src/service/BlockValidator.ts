@@ -14,7 +14,7 @@ export class BlockValidator implements ValidatorInterface
 
     public validate(newBlock: Block, previousBlock: Block): boolean
     {
-        if (!this.isBlockHasValidStructure(newBlock)) {
+        if (!BlockValidator.isBlockHasValidStructure(newBlock)) {
             throw new Error('Invalid block structure');
         }
 
@@ -39,7 +39,20 @@ export class BlockValidator implements ValidatorInterface
         return true;
     }
 
-    private isBlockHasValidStructure(block: Block): boolean
+    public validateChain(blockchainToValidate: Block[], genesisBlock: Block): boolean
+    {
+        if (!BlockValidator.isGenesisBlockValid(blockchainToValidate[0], genesisBlock)) {
+            throw new Error('Invalid genesis block');
+        }
+
+        for (let i = 1, length = blockchainToValidate.length; i < length; i++) {
+            this.validate(blockchainToValidate[i], blockchainToValidate[i - 1]);
+        }
+
+        return true;
+    }
+
+    private static isBlockHasValidStructure(block: Block): boolean
     {
         return typeof block.getIndex() === 'number'
             && typeof block.getHash() === 'string'
@@ -47,5 +60,10 @@ export class BlockValidator implements ValidatorInterface
             && typeof block.getTimestamp() === 'number'
             && typeof block.getData() === 'string'
         ;
+    }
+
+    private static isGenesisBlockValid(block: Block, genesisBlock: Block): boolean
+    {
+        return JSON.stringify(block) === JSON.stringify(genesisBlock);
     }
 }
