@@ -2,7 +2,8 @@ import { Block } from '../model/Block';
 import { BlockFactory } from './BlockFactory';
 import { ManagerInterface } from "./ManagerInterface";
 
-class BlockchainManager implements ManagerInterface {
+class BlockchainManager implements ManagerInterface
+{
     private blockchain: Block[];
 
     constructor() {
@@ -12,5 +13,12 @@ class BlockchainManager implements ManagerInterface {
     public getBlockchain(): Block[]
     {
         return this.blockchain;
+    }
+
+
+
+    private getLatestBlock(): Block
+    {
+        return this.blockchain[this.blockchain.length - 1];
     }
 }

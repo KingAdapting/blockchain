@@ -1,4 +1,4 @@
-import { Block } from '../model/Block'
+import { Block } from '../model/Block';
 
 export class BlockFactory
 {
@@ -12,8 +12,14 @@ export class BlockFactory
             this.GENESIS_INDEX,
             this.GENESIS_HASH,
             null,
-            Date.now(),
+            Date.now() / 1000,
             this.GENESIS_DATA
         );
+    }
+
+    public static createNextBlock(previousBlock: Block, blockData: string): Block
+    {
+        const nextIndex: number = previousBlock.getIndex() + 1;
+        const nextTimestamp: number = new Date.now() / 1000;
     }
 }

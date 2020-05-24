@@ -1,4 +1,5 @@
-export class Block {
+export class Block
+{
     private index: number;
     private hash: string;
     private previousHash: string;
