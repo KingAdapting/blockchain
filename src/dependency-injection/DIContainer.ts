@@ -1,12 +1,12 @@
 import { Container } from 'inversify';
 
-import { TYPES } from "./types";
-import { HashGeneratorInterface } from "../infrastructure/HashGeneratorInterface";
-import { FactoryInterface } from "../infrastructure/FactoryInterface";
-import { ManagerInterface } from "../infrastructure/ManagerInterface";
-import { HashGenerator } from "../service/HashGenerator";
-import { BlockFactory } from "../service/BlockFactory";
-import { BlockchainManager } from "../service/BlockchainManager";
+import { TYPES } from './types';
+import { HashGeneratorInterface } from '../infrastructure/HashGeneratorInterface';
+import { FactoryInterface } from '../infrastructure/FactoryInterface';
+import { ManagerInterface } from '../infrastructure/ManagerInterface';
+import { HashGenerator } from '../service/HashGenerator';
+import { BlockFactory } from '../service/BlockFactory';
+import { BlockchainManager } from '../service/BlockchainManager';
 
 const DIContainer = new Container();
 

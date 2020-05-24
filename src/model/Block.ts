@@ -1,10 +1,10 @@
 export class Block
 {
-    private index: number;
-    private hash: string;
-    private previousHash: string;
-    private timestamp: number;
-    private data: string;
+    private readonly index: number;
+    private readonly hash: string;
+    private readonly previousHash: string;
+    private readonly timestamp: number;
+    private readonly data: string;
 
     constructor(
         index: number,

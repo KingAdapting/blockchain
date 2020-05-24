@@ -3,7 +3,7 @@ import { inject, injectable } from 'inversify';
 import { TYPES } from '../dependency-injection/types';
 import { Block } from '../model/Block';
 import { ManagerInterface } from '../infrastructure/ManagerInterface';
-import { BlockFactory} from "./BlockFactory";
+import { BlockFactory } from './BlockFactory';
 
 @injectable()
 export class BlockchainManager implements ManagerInterface
@@ -19,6 +19,14 @@ export class BlockchainManager implements ManagerInterface
     public getBlockchain(): Block[]
     {
         return this.blockchain;
+    }
+
+    public addBlock(blockData: string): Block
+    {
+        const newBlock = this.blockFactory.createNextBlock(this.getLatestBlock(), blockData);
+        this.blockchain.push(newBlock);
+
+        return newBlock;
     }
 
     private getLatestBlock(): Block

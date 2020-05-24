@@ -1,9 +1,9 @@
-import { injectable, inject } from "inversify";
+import { injectable, inject } from 'inversify';
 
 import { TYPES } from '../dependency-injection/types';
 import { Block } from '../model/Block';
-import { HashGenerator } from "./HashGenerator";
-import { FactoryInterface } from "../infrastructure/FactoryInterface";
+import { HashGenerator } from './HashGenerator';
+import { FactoryInterface } from '../infrastructure/FactoryInterface';
 
 @injectable()
 export class BlockFactory implements FactoryInterface

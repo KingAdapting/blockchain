@@ -1,7 +1,7 @@
 import * as CryptoJS from 'crypto-js';
-import { injectable } from "inversify";
+import { injectable } from 'inversify';
 
-import { HashGeneratorInterface } from "../infrastructure/HashGeneratorInterface";
+import { HashGeneratorInterface } from '../infrastructure/HashGeneratorInterface';
 
 @injectable()
 export class HashGenerator implements HashGeneratorInterface {
