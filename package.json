@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "crypto-js": "^4.0.0",
     "express": "^4.17.1",
     "typescript": "^3.9.3"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
+    "@types/crypto-js": "^3.1.47",
     "@types/express": "types/express",
     "@types/node": "^14.0.5",
     "tslint": "^6.1.2"
